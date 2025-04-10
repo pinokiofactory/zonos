@@ -10,5 +10,10 @@ module.exports = {
       path: "app",
       message: "git pull"
     }
+  }, {
+    method: "fs.rm",
+    params: {
+      path: "app/env"
+    }
   }]
 }
