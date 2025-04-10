@@ -46,6 +46,22 @@ module.exports = async (kernel) => {
 //          dest: "app/env/lib/python3.10/site-packages/torch/_inductor/codegen/cpp.py"
 //        }
 //      },
+      {
+        when: "{{platform === 'win32'}}",
+        method: "fs.copy",
+        params: {
+          src: "cpp_builder.py",
+          dest: "app/env/lib/site-packages/torch/_inductor/cpp_builder.py"
+        }
+      },
+      {
+        when: "{{platform !== 'win32'}}",
+        method: "fs.copy",
+        params: {
+          src: "cpp_builder.py",
+          dest: "app/env/lib/python3.10/site-packages/torch/_inductor/cpp_builder.py"
+        }
+      },
       // Edit this step with your custom install commands
       {
         method: "shell.run",
