@@ -3,6 +3,12 @@ module.exports = async (kernel) => {
     run: [
       // Edit this step to customize the git repository to use
       {
+        method: "fs.rm",
+        params: {
+          path: kernel.path("cache/TORCH_INDUCTOR")
+        }
+      },
+      {
         method: "shell.run",
         params: {
           message: [
