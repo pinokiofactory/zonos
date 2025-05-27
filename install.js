@@ -91,6 +91,7 @@ module.exports = async (kernel) => {
           venv: "env",                // Edit this to customize the venv folder path
           path: "app",                // Edit this to customize the path to start the shell from
           message: [
+            "uv pip install wheel",
             "uv pip install -e .[compile]"
           ]
         }
