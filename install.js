@@ -47,6 +47,13 @@ module.exports = async (kernel) => {
 //        }
 //      },
       {
+        when: "{{platform === 'win32' && gpu === 'nvidia' && kernel.gpu_model && / 50.+/.test(kernel.gpu_model) }}",
+        method: "jump",
+        params: {
+          id: "install"
+        }
+      },
+      {
         when: "{{platform === 'win32'}}",
         method: "fs.copy",
         params: {
@@ -64,23 +71,13 @@ module.exports = async (kernel) => {
       },
       // Edit this step with your custom install commands
       {
+        id: "install",
         method: "shell.run",
         params: {
           venv: "env",                // Edit this to customize the venv folder path
           path: "app",                // Edit this to customize the path to start the shell from
           message: [
             "uv pip install -e .",
-          ]
-        }
-      },
-      {
-        when: "{{platform === 'win32'}}",
-        method: "shell.run",
-        params: {
-          venv: "env",                // Edit this to customize the venv folder path
-          path: "app",                // Edit this to customize the path to start the shell from
-          message: [
-            "uv pip install https://github.com/woct0rdho/triton-windows/releases/download/v3.1.0-windows.post8/triton-3.1.0-cp310-cp310-win_amd64.whl",
           ]
         }
       },
