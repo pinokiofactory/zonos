@@ -35,14 +35,14 @@ module.exports = async (kernel) => {
           id: "install"
         }
       },
-      {
-        when: "{{platform === 'win32'}}",
-        method: "fs.copy",
-        params: {
-          src: "cpp_builder.py",
-          dest: "app/env/lib/site-packages/torch/_inductor/cpp_builder.py"
-        }
-      },
+//      {
+//        when: "{{platform === 'win32'}}",
+//        method: "fs.copy",
+//        params: {
+//          src: "cpp_builder.py",
+//          dest: "app/env/lib/site-packages/torch/_inductor/cpp_builder.py"
+//        }
+//      },
       {
         when: "{{platform !== 'win32'}}",
         method: "fs.copy",
