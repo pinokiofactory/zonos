@@ -1,5 +1,8 @@
 module.exports = async (kernel) => {
   return {
+    requires: {
+      bundle: "ai",
+    },
     run: [
       {
         method: "fs.rm",

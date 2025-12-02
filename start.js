@@ -44,6 +44,9 @@ module.exports = async (kernel) => {
   console.log("ENV", env)
 
   return {
+    requires: {
+      bundle: "ai",
+    },
     daemon: true,
     run: [
       {
