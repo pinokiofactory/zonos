@@ -12,8 +12,8 @@ module.exports = async (kernel) => {
         params: {
           message: [
             "git clone https://github.com/cocktailpeanut/Zonos app",
-            "pnpm install",
-            "pnpm run clear"
+            "npm install",
+            "npm run clear"
           ]
         }
       },
