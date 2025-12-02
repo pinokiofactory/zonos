@@ -62,6 +62,7 @@ module.exports = async (kernel) => {
           path: "app",
           message: [
             "uv pip install -e .",
+            "uv pip install hf-xet"
           ]
         }
       },
