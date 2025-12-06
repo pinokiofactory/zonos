@@ -31,13 +31,13 @@ module.exports = async (kernel) => {
           }
         }
       },
-      {
-        when: "{{platform === 'win32' && gpu === 'nvidia' && kernel.gpu_model && / 50.+/.test(kernel.gpu_model) }}",
-        method: "jump",
-        params: {
-          id: "install"
-        }
-      },
+//      {
+//        when: "{{platform === 'win32' && gpu === 'nvidia' && kernel.gpu_model && / 50.+/.test(kernel.gpu_model) }}",
+//        method: "jump",
+//        params: {
+//          id: "install"
+//        }
+//      },
 //      {
 //        when: "{{platform === 'win32'}}",
 //        method: "fs.copy",
@@ -61,6 +61,7 @@ module.exports = async (kernel) => {
           venv: "env",
           path: "app",
           message: [
+            "uv pip install gradio==5.50.0",
             "uv pip install -e .",
             "uv pip install hf-xet"
           ]
@@ -73,7 +74,7 @@ module.exports = async (kernel) => {
           venv: "env",
           path: "app",
           message: [
-            "uv pip install wheel",
+            "uv pip install wheel gradio==5.50.0",
             "uv pip install -e .[compile]"
           ]
         }
